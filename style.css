@@ -6,20 +6,22 @@
     src: url("../assets/fonts/Vazir.woff2") format("woff2");
     src: url("../assets/fonts/Vazir.woff") format("woff");
     src: url("../assets/fonts/Vazir.ttf") format("truetype");
-    
+
     /* safari, Android, ios */
 
 }
 
-:root{
-    --primary-color: #0f83bd;
-    --light-color:#fff;
-    --secondary-color:#f99a00;
-    --dark-color:#585858;
+
+/* Difination of color */
+:root {
+    --primary-color: #4e9dc5;
+    --light-color: #fff;
+    --secondary-color: #f99a00;
+    --dark-color: #585858;
 
 }
 
-body{
+body {
 
     font-family: "Vazir" !important;
     padding: 0;
@@ -27,12 +29,148 @@ body{
     box-sizing: border-box;
 }
 
-.navbar{
+
+.header-scrolled {
     background-color: var(--primary-color);
+    box-shadow: 0px 2px 20px rgb(141, 122 /10%);
 }
 
-#toggleDark{
+.header {
+    transition: all 0.5s;
+}
+
+#toggleDark {
     cursor: pointer;
     font-size: 50px;
-    transform: translate(-50% , -50%);
+    transform: translate(-50%, -50%);
 }
+
+.navbar-toggler {
+    padding: .25rem .50rem;
+    font-size: 1rem;
+}
+
+/* Style for the image of slider */
+
+.hero .carousel-item img-slide {
+    height: 750px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    /* مقدار شفافیت (0.0 تا 1.0) */
+    transition: opacity 0.3s;
+    /* انیمیشن تغییر شفافیت */
+
+}
+
+/* .hero .carousel-item::before{
+    content: "";
+    background-color: #697bcd;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: -7;
+} */
+
+/* style for logo that is on image slide */
+.custom-img {
+    width: 300px;
+    /* اندازه تصویر برای سایز بزرگ */
+    height: 300px;
+    /* اندازه تصویر برای سایز بزرگ */
+}
+
+@media (max-width: 576px) {
+
+    /* برای صفحه‌های کوچک (موبایل) */
+    .custom-img {
+        width: 100px;
+        /* اندازه تصویر برای سایز کوچک */
+        height: 100px;
+        /* اندازه تصویر برای سایز کوچک */
+
+    }
+
+    .h5-responsive {
+        font-size: 1rem;
+        margin: 0%;
+
+    }
+
+    .p-responsive {
+        font-size: 0.8rem;
+        margin: 0%;
+
+    }
+}
+
+
+/* style for about us and counter */
+
+.para {
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.div-img img {
+    height: 420px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .para {
+        height: auto;
+        /* برای اندازه‌های کوچک‌تر، ارتفاع خودکار */
+    }
+
+    .div-img img {
+        height: auto;
+        /* برای اندازه‌های کوچک‌تر، ارتفاع خودکار */
+        width: 100%;
+        /* تصویر را به عرض کامل ستون تنظیم کنید */
+    }
+}
+
+.counts i {
+    font-size: 35px;
+    margin-left: 8px;
+    color: var(--primary-color);
+
+}
+
+.purecolor {
+    color: var(--primary-color);
+}
+
+.counts .blue {
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+
+
+/* style for footer */
+
+.link1{
+
+    text-decoration: none;
+    color: #4e9dc5;
+
+    
+}
+.di{
+    margin: 5px;
+}
+

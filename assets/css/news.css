@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: "Vazir";
+    src: url("../assets/fonts/Vazir.eot");
+    /** IE9 compat Moded */
+    src: url("../assets/fonts/Vazir.eot?#iefix") format("embedded-opentype");
+    src: url("../assets/fonts/Vazir.woff2") format("woff2");
+    src: url("../assets/fonts/Vazir.woff") format("woff");
+    src: url("../assets/fonts/Vazir.ttf") format("truetype");
+  
+    /* safari, Android, ios */
+  }
+  
+  /* Difination of color */
+  :root {
+    --primary-color: #4e9dc5;
+    --light-color: #fff;
+    --secondary-color: #f99a00;
+    --dark-color: #585858;
+  }
+  
+  body {
+    font-family: "Vazir" !important;
+   
+  }
+  
+  .header-scrolled {
+    background-color: var(--secondary-color);
+    box-shadow: 0px 2px 20px rgb(141, 122 /10%);
+  }
+  
+  .header {
+    transition: all 0.5s;
+  }
+  
+  #toggleDark {
+    cursor: pointer;
+    font-size: 50px;
+    transform: translate(-50%, -50%);
+  }
+  .section{
+    margin-top: 120px;
+  }
+
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+  }
+  .navbar-brand img {
+    height: 50px; /* ارتفاع تصویر */
+    width: auto; /* عرض خودکار */
+    max-width: 100%; /* حداکثر عرض 100% */
+    object-fit: contain; /* حفظ تناسب تصویر */
+    margin-right: 10px; /* فاصله از دکمه توگل */
+}
+
+.navbar-toggler {
+    position: relative;
+    margin-top: 20px;
+    
+     /* برای قرار دادن دکمه در سمت راست */
+}
+
+.card-title{
+    color: #f99a00;
+    text-align: center;
+}
+.card-text{
+    color: #585858;
+}
+
+.purecolor{
+  color: #f99a00;
+}
+
+
+.link1{
+  text-decoration: none;
+
+}
+
+  /* style for slider */
+
+
+.custom-carousel {
+    max-width: 800px; /* یا هر مقدار دلخواه */
+    margin: auto; /* برای مرکز کردن */
+  }
+
+
+
+  /* for link footer*/
+
+
+  .title{
+    color: #4e9dc5;
+  }

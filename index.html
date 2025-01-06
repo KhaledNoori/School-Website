@@ -2,328 +2,227 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
-        integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous" />
-    <!-- css file -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- js file -->
-    <script src="javaScript.js" defer></script>
-    <!-- Bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous" />
+  <!-- css file -->
+  <link rel="stylesheet" href="../assets/css/index.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/pruecounter/dist/pruecounter.min.js"></script>
+  <!-- Bootstrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- pruecounter library for counting the number -->
+  <script src="https://cdn.jsdelivr.net/npm/pruecounter/dist/pruecounter.min.js"></script>
+  <!-- alpine js  for navbar hide and show -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <!-- for showing better message -->
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- for sending email -->
 
-    <title>Royia Sabaz School</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <title>Royia Sabaz School</title>
+
+  <!-- for swiper js css -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
+  <!-- this is Navbar -->
+  <header x-data="{ navShow: false }" @scroll.window="navShow = window.scrollY > 50">
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top" :class="{'header-scrolled': navShow}">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img height="50px" src="../assets/images/Navbar/photo_2024-09-11_09-11-16.png"
+            alt="png" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active " aria-current="page" href="index.html">صفحه اصلی</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="About.html">در باره ما</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="Essay.html">مقالات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="topStudent.html">شاگردان برتر</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="news.html">اعلانات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="contactUS.html"
+                >ارتباط با ما</a
+              >
+            </li>
+          </ul>
 
-    <!-- this is Navbar -->
-    <header x-data="{ navShow: false }" @scroll.window="navShow = window.scrollY > 100">
-        <nav class=" header navbar navbar-expand-lg navbar-light fixed-top" :class="{'header-scrolled': navShow}">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img height="50px" src="../assets/Navbar/photo_2024-09-11_09-11-16.png" alt="png"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">صفحه اصلی</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">در باره ما</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">مقالات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">شاگردان برتر</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">اعلانات</a>
-                        </li>
-                    </ul>
-    
-                    <!-- active the light and dark Mode -->
-                
-                <div class="mx-2 ">
-                    <i class="bi bi-brightness-high-fill fs-3" id="toggleDark"></i>
-                </div>
-    
-                    <!-- Google Translate api -->
-                    <div>
-                        <div id="google_element"></div>
-                        <script async src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-                        <script>
-                            function loadGoogleTranslate() {
-                                new google.translate.TranslateElement({                            pageLanguage: 'en',
-                                includedLanguages: 'en,fa,ar,fr,tr,ph',
-                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                            }, 'google_element');
-                        }
-                    </script>
-                </div>
-            </div>
+          <!-- active the light and dark Mode -->
+
+          <div class="mx-2">
+            <i class="bi bi-brightness-high-fill fs-3" id="toggleDark"></i>
+          </div>
+
+          <!-- Google Translate api -->
+          <div>
+            <div id="google_element"></div>
+            <script async src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+            <script>
+              function loadGoogleTranslate() {
+                new google.translate.TranslateElement(
+                  {
+                    pageLanguage: "en",
+                    includedLanguages: "en,fa,ar,fr,tr,ph",
+                    layout:
+                      google.translate.TranslateElement.InlineLayout.SIMPLE,
+                  },
+                  "google_element"
+                );
+              }
+            </script>
+          </div>
         </div>
+      </div>
     </nav>
-</header>
-    
+  </header>
 
+  <!-- slider -->
 
-    <!-- slider -->
-
-    <section class="hero">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-
-            <div class="carousel-inner m-0">
-                <div class="carousel-item active">
-                    <img src="../assets/slider/funny-children-classroom_839035-411570.jpg"
-                        class="img-slide d-block w-100 mb-0" alt="...">
-                    <div class="carousel-caption d-block text-center m-0">
-                        <img src="../assets/Navbar/photo_2024-09-11_09-11-16.png " alt="image"
-                            class="img-fluid custom-img "">
-                        <h5 class=" h5-responsive">Second slide label</h5>
-                        <p class="p-responsive">Some representative placeholder content for the second slide.</p>
-                    </div>
-
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/slider/R.jpg" class=" img-slide d-block w-100" alt="...">
-                    <div class="carousel-caption  d-md-block">
-                        <h5 class="h5-responsive">Second slide label</h5>
-                        <p class="p-responsive">Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/slider/Primary-School-Teacher-istock.jpg" class=" img-slide d-block w-100"
-                        alt="...">
-                    <div class="carousel-caption  d-md-block">
-                        <h5 class="h5-responsive">Third slide label</h5>
-                        <p class="p-responsive">Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-    </section>
-
-    <!-- About us  -->
-
-    <section class="container">
-        <div>
-            <h3 class=" text-center m-5 " style="color: #f76c2f">در باره ما</h3>
-        </div>
-        <div class="row  align-items-center">
-            <div class="col-lg-6 mb-5">
-                <div class="div-pa">
-                    <p class="para shadow sm-fs-2 mt-5 p-3
-                    text-center text-justify">
-                        ما در این وبسایت به معرفی لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                        استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                        در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                        نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-                        کتابهای زیادی در شصت و سه درصد گذشته حال.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="div-img text-center">
-                    <img src="../assets/Navbar/photo_2024-09-11_09-11-16.png" alt="ewew" class="img-fluid shadow" />
-                </div>
-            </div>
-        </div>
-
-
-        <!-- parts of about us counting  -->
-
-        <div class="container counts my-5">
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-person-standing blue"></i>
-                        <div>
-                           
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter   m-2 fw-bold" style="color: #f76c2f">0</span>
-                                <p class="fw-bold">آموزگار</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-people-fill blue"></i>
-                        <div>
-                            
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
-                                <p class="fw-bold">دانش آموز</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-building blue"></i>
-                        <div>
-                            
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
-                                <p class="fw-bold">صنف آموزشی</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-building blue"></i>
-                        <div>
-                            
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
-                                <p class="fw-bold">صنف آموزشی</p>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-<!-- Vision and mission -->
-        <div class="container section border-top my-5">
-            <div class="row">
-              <div class="col-md-12 m-3  text-center">
-                <h3 style=" color: #f76c2f" ">دیدگاه و ماموریت</h3>
-               
-              </div>
-              <div class="col-md-6 text-center">
-                <h5 class="purecolor">دیدگاه ما </h5>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت لورم ایپسوم
-                  متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                  طراحان گرافیک است، چاپگرها 
-                </p>
-              </div>
-              <div class="col-md-6 text-center justify-conent-center align-items-center">
-                <h5 class="purecolor">ماموریت ما </h5>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت لورم ایپسوم
-                  متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                  طراحان گرافیک است، چاپگرها 
-                </p>
-              </div>
-            </div>
-          </div>
-    </section>
-    <!-- Footr -->
-
-    <section class="section Footer pt-4  ">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 text-center mb-5">
-              <h6 class="purecolor">در باره مکتب</h6>
-              <hr />
-              <p>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت لورم ایپسوم
-                متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                طراحان گرافیک است، چاپگرها و{" "}
-              </p>
-            </div>
-            <div class="col-md-4 text-center mb-5">
-              <h6 class="purecolor">لینک صفحات</h6>
-              <hr />
-              <div class="di ">
-                <a class="link1 text-center" href="#">
-                  خانه
-                </a>
-              </div>
-              <div class="di">
-                <a class="link1" href="#">
-                  در باره ما
-                </a>
-              </div>
-              <div class="di">
-                <a class="link1" href="#" >
-                  مقالات
-                </a>
-              </div>
-              <div class="di">
-                <a class="link1" href="#" >
-                  شاگردان برتر
-                </a>
-              </div>
-              <div class="di">
-                <a class="link1" href="#" >
-                  ارتباط با ما
-                </a>
-              </div>
-            </div>
-            <div class="col-md-4 text-center mb-5">
-              <h6 class="purecolor"> لینک های ارتباطی </h6>
-              <hr />
-              <div>
-                <p class=" mb-1"> آدرس : افغانستان هرات پل رنگینه </p>
-              </div>
-              <div>
-                <p class=" mb-1">+93 794 5345 434</p>
-              </div>
-              <div>
-                <p class=" mb-1">+93 794 3445 434</p>
-              </div>
-              <div>
-                <p class=" mb-1">RoyaiSabaz@gmail.com</p>
-              </div>
-              <div>
-                <p class=" mb-1"> ID-Telegram: RoyaiSabaz@1212</p>
-              </div>
-            </div>
+  <section class="hero">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner m-0">
+        <div class="carousel-item active">
+          <img src="../assets/images/slider/funny-children-classroom_839035-411570.jpg" class="img-slide d-block w-100 mb-0"
+            alt="..." />
+          <div class="carousel-caption d-block text-center m-0">
+            <img src="../assets/images/Navbar/photo_2024-09-11_09-11-16.png " alt="image" class="img-fluid custom-img "">
+              <h5 class=" h5-responsive">Second slide label</h5>
+            <p class="p-responsive">
+              Some representative placeholder content for the second slide.
+            </p>
           </div>
         </div>
-      </section>
+        <div class="carousel-item">
+          <img src="../assets/images/slider/R.jpg" class="img-slide d-block w-100" alt="..." />
+          <div class="carousel-caption d-md-block">
+            <h5 class="h5-responsive">Second slide label</h5>
+            <p class="p-responsive">
+              Some representative placeholder content for the second slide.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../assets/images/slider/Primary-School-Teacher-istock.jpg" class="img-slide d-block w-100" alt="..." />
+          <div class="carousel-caption d-md-block">
+            <h5 class="h5-responsive">Third slide label</h5>
+            <p class="p-responsive">
+              Some representative placeholder content for the third slide.
+            </p>
+          </div>
+        </div>
 
-        <!-- CDN purecounter library -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
-        <script>
-            new PureCounter();
-        </script>
+  <!-- Footr -->
 
+  <section class="section Footer pt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center mb-5">
+          <h6 class="purecolor">در باره مکتب</h6>
+          <hr />
+          <p>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت لورم ایپسوم
+            متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
+            طراحان گرافیک است، چاپگرها و{" "}
+          </p>
+        </div>
+        <div class="col-md-4 text-center mb-5">
+          <h6 class="purecolor">لینک صفحات</h6>
+          <hr />
+          <div class="di">
+            <a class="link1 text-center" href="#"> خانه </a>
+          </div>
+          <div class="di">
+            <a class="link1" href="About.html"> در باره ما </a>
+          </div>
+          <div class="di">
+            <a class="link1" href="Essay.html"> مقالات </a>
+          </div>
+          <div class="di">
+            <a class="link1" href="topStudent.html"> شاگردان برتر </a>
+          </div>
+          <div class="di">
+            <a class="link1" href="contacttUs.html"> ارتباط با ما </a>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-5">
+          <h6 class="purecolor">لینک های ارتباطی</h6>
+          <hr />
+          <div>
+            <p class="mb-1">آدرس : افغانستان هرات پل رنگینه</p>
+          </div>
+          <div>
+            <p class="mb-1">+93 794 5345 434</p>
+          </div>
+          <div>
+            <p class="mb-1">+93 794 3445 434</p>
+          </div>
+          <div>
+            <p class="mb-1">RoyaiSabaz@gmail.com</p>
+          </div>
+          <div>
+            <p class="mb-1">ID-Telegram: RoyaiSabaz@1212</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- <!-- Option 1: Bootstrap Bundle with Popper  bootstarp 5.1.3  js link -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+  <!-- for carousel 
+        -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <!-- CDN purecounter library -->
+
+  <!-- <!-- Option 1: Bootstrap Bundle with Popper  bootstarp 5.1.3  js link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- for swiper js script   -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- js file -->
+    <script src="../assets/js/javaScript.js" defer></script>
 </body>
 
 </html>

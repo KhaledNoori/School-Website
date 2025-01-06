@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../assets/fonts/Vazir.eot");
+  /** IE9 compat Moded */
+  src: url("../assets/fonts/Vazir.eot?#iefix") format("embedded-opentype");
+  src: url("../assets/fonts/Vazir.woff2") format("woff2");
+  src: url("../assets/fonts/Vazir.woff") format("woff");
+  src: url("../assets/fonts/Vazir.ttf") format("truetype");
+
+  /* safari, Android, ios */
+}
+
+/* Difination of color */
+:root {
+  --primary-color: #4e9dc5;
+  --light-color: #fff;
+  --secondary-color: #f99a00;
+  --dark-color: #585858;
+}
+
+body {
+  font-family: "Vazir" !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+
+  display: block;
+}
+
+.header-scrolled {
+  background-color: var(--secondary-color);
+  box-shadow: 0px 2px 20px rgb(141, 122 /10%);
+}
+
+.header {
+  transition: all 0.5s;
+}
+
+#toggleDark {
+  cursor: pointer;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+.swiper {
+  width: 100%;
+  margin-top: 50px;
+  padding: 50px;
+}
+.swiper-wraper {
+  width: 100%;
+  height: 35em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+}
+
+
+.card {
+  width: 25%;
+  height: auto; /* تنظیم ارتفاع به صورت خودکار */
+  border-radius: 2em;
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
+  padding: 1em .5em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 1.5em;
+} 
+
+.card_image {
+  width: 10vw; /* استفاده از واحد vw برای اندازه نسبی */
+  height: 10vw; /* استفاده از واحد vw برای اندازه نسبی */
+  max-width: 150px; /* حداکثر عرض */
+  max-height: 150px; /* حداکثر ارتفاع */
+  border-radius: 50%;
+  border: 5px solid #f99a00;
+  padding: 3px;
+  margin-bottom: 2em;
+}
+
+.card_image img {
+  width: 100%; /* تنظیم تصویر به صورت خودکار */
+  height: auto; /* حفظ نسبت ابعاد */
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.card_content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card_name {
+  color: #f99a00;
+}
+
+.card_title {
+  font-size: 1.5em;
+  font-weight: 500;
+  position: relative;
+  top: 0.2em;
+  color: #000;
+}
+
+.card_text {
+  font-size: 1em;
+  text-align: center;
+  margin: 1em;
+}
+
+.card_btn {
+  background-color: #585858;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+.user-text{
+  color: #585858;
+}
+
+.title{
+  color: #4e9dc5;
+}
+
+.link1{
+  color: #4e9dc5;
+}
+
+/* style for link of footer */
+
+.link1{
+  text-decoration: none;
+
+}

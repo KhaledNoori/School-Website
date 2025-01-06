@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../assets/fonts/Vazir.eot");
+  /** IE9 compat Moded */
+  src: url("../assets/fonts/Vazir.eot?#iefix") format("embedded-opentype");
+  src: url("../assets/fonts/Vazir.woff2") format("woff2");
+  src: url("../assets/fonts/Vazir.woff") format("woff");
+  src: url("../assets/fonts/Vazir.ttf") format("truetype");
+
+  /* safari, Android, ios */
+}
+
+/* Difination of color */
+:root {
+  --primary-color: #4e9dc5;
+  --light-color: #fff;
+  --secondary-color: #f99a00;
+  --dark-color: #585858;
+}
+
+body {
+  font-family: "Vazir" !important;
+ 
+}
+
+.header-scrolled {
+  background-color: var(--secondary-color);
+  box-shadow: 0px 2px 20px rgb(141, 122 /10%);
+}
+
+.header {
+  transition: all 0.5s;
+}
+
+#toggleDark {
+  cursor: pointer;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+/* style for about us and counter */
+
+.container{
+    margin-top: 25px;
+}
+.para {
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.div-img img {
+  height: 420px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .para {
+    height: auto;
+    /* برای اندازه‌های کوچک‌تر، ارتفاع خودکار */
+  }
+
+  .div-img img {
+    height: auto;
+    /* برای اندازه‌های کوچک‌تر، ارتفاع خودکار */
+    width: 100%;
+    /* تصویر را به عرض کامل ستون تنظیم کنید */
+  }
+}
+
+.counts i {
+  font-size: 35px;
+  margin-left: 8px;
+  color: var(--primary-color);
+}
+
+.purecolor {
+  color: var(--primary-color);
+}
+
+.counts .blue {
+  color: var(--primary-color);
+}
+
+/* style for footer */
+
+.link1 {
+  text-decoration: none;
+  color: #4e9dc5;
+}
+
+.di {
+  margin: 5px;
+}

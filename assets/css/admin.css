@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../assets/fonts/Vazir.eot");
+  /** IE9 compat Moded */
+  src: url("../assets/fonts/Vazir.eot?#iefix") format("embedded-opentype");
+  src: url("../assets/fonts/Vazir.woff2") format("woff2");
+  src: url("../assets/fonts/Vazir.woff") format("woff");
+  src: url("../assets/fonts/Vazir.ttf") format("truetype");
+
+  /* safari, Android, ios */
+}
+
+
+/* Difination of color */
+:root {
+  --primary-color: #4e9dc5;
+  --light-color: #fff;
+  --secondary-color: #f99a00;
+  --dark-color: #585858;
+}
+
+body {
+  font-family: "Vazir" !important;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  height: 100vh;
+  background-color: white;
+  transition: all 0.5s ease-out;
+  padding: 1rem;
+
+}
+
+/* for sidebar and toggle button  */
+.sidebar.inactive {
+  margin-right: -250px;
+}
+
+
+
+.sidebar .sidebar-item {
+  margin-top: .5rem;
+
+}
+
+.sidebar-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  transition: all 0.5s;
+
+}
+
+.sidebar-link:hover {
+  background-color: #f0f1f5
+}
+
+.sidebar-item.active .sidebar-link {
+  background-color: #4e9dc5;
+  color: #fff;
+}
+ .sidebar .sidebar-item .sidebar-link {
+  cursor: pointer  ;
+ }
+
+ .sidebar .submenu{
+  list-style: none;
+}
+
+.sidebar .submenu .submenu-item a{
+  
+padding: 0.3rem;
+display: block;
+color: #4e9dc5;
+font-size: 0.85rem;
+font-weight: 500;
+text-decoration: none;
+transition:all 0.3s ;
+
+}
+.sidebar .submenu .submenu-item a:hover{
+margin: .3rem;
+
+}
+
+.sidebar .sidebar-item .bi-chevron-down{
+  font-size: 0.8rem;
+}
+
+/* main */
+
+.main {
+  background-color: #f2f7ff;
+  height: 100vh;
+  transition: all 0.5s ease-out;
+}
+
+.main.active {
+  margin-right: 0;
+
+}
+
+@media (min-width:992px) {
+
+  .main {
+    margin-right: 250px;
+  }
+
+}
+
+/* style for small loading javascript  */
+[x-cloak] {
+  display: none !important;
+}
+

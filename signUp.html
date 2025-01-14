@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ثبت‌نام</title>
+   <link rel="stylesheet" href="../assets/css/signUp.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>ثبت‌نام</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="name">نام:</label>
+                <input type="text" id="name" name="name">
+                <div id="nameError" class="error-message">لطفاً نام خود را وارد کنید.</div>
+            </div>
+            <div class="input-group">
+                <label for="email">ایمیل:</label>
+                <input type="email" id="email" name="email">
+                <div id="emailError" class="error-message">لطفاً ایمیل معتبر وارد کنید.</div>
+            </div>
+            <div class="input-group">
+                <label for="username">نام کاربری:</label>
+                <input type="text" id="username" name="username">
+                <div id="usernameError" class="error-message">لطفاً نام کاربری را وارد کنید.</div>
+            </div>
+            <div class="input-group">
+                <label for="password">رمز عبور:</label>
+                <input type="password" id="password" name="password">
+                <div id="passwordError" class="error-message">لطفاً رمز عبور را وارد کنید.</div>
+            </div>
+            <button type="submit">ثبت‌نام</button>
+        </form>
+        
+        <div class="footer">
+            <p>قبلاً حساب کاربری دارید؟ <a href="login.html">ورود</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+
+            // گرفتن مقادیر ورودی
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            let valid = true;
+
+            // اعتبارسنجی نام
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'block';
+                document.getElementById('name').classList.add('input-error');
+                valid = false;
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+                document.getElementById('name').classList.remove('input-error');
+            }
+
+            // اعتبارسنجی ایمیل
+            const emailPattern = /^[^s@]+@[^s@]+.[^s@]+$/; // الگوی ایمیل
+            if (email === '' || !emailPattern.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                document.getElementById('email').classList.add('input-error');
+                valid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+                document.getElementById('email').classList.remove('input-error');
+            }
+
+            // اعتبارسنجی نام کاربری
+            if (username === '') {
+                document.getElementById('usernameError').style.display = 'block';
+                document.getElementById('username').classList.add('input-error');
+                valid = false;
+            } else {
+                document.getElementById('usernameError').style.display = 'none';
+                document.getElementById('username').classList.remove('input-error');
+            }
+
+            // اعتبارسنجی رمز عبور
+            if (password === '') {
+                document.getElementById('passwordError').style.display = 'block';
+                document.getElementById('password').classList.add('input-error');
+                valid = false;
+            } else {
+                document.getElementById('passwordError').style.display = 'none';
+                document.getElementById('password').classList.remove('input-error');
+            }
+
+            // اگر تمام ورودی‌ها معتبر بودند، می‌توان فرم را ارسال کرد
+            if (valid) {
+                alert('ثبت‌نام موفقیت‌آمیز!'); // اینجا می‌توانید کد ارسال فرم را قرار دهید
+                // در اینجا می‌توانید کد ارسال اطلاعات به سرور را اضافه کنید
+            }
+        });
+    </script>
+
+</body>
+</html>

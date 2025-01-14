@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ورود</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>ورود به حساب کاربری</h2>
+    <form id="loginForm" action="admin.html">
+        <div class="input-group">
+            <label for="username">نام کاربری</label>
+            <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید" required>
+            <div class="error-message" id="usernameError">لطفاً نام کاربری را وارد کنید.</div>
+        </div>
+        <div class="input-group">
+            <label for="password">رمز عبور</label>
+            <input type="password" id="password" placeholder="رمز عبور خود را وارد کنید" required>
+            <div class="error-message" id="passwordError">لطفاً رمز عبور را وارد کنید.</div>
+        </div>
+        <button type="submit" class="btn">ورود</button>
+    </form>
+    <p>اگر حساب کاربری ندارید، لطفاً به <a href="signup.html">صفحه ثبت‌نام</a> بروید.</p> <!-- لینک به صفحه ثبت‌نام -->
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // جلوگیری از ارسال فرم
+
+        // پاک کردن پیام‌های خطا و کلاس‌های خطا
+        document.getElementById('usernameError').style.display = 'none';
+        document.getElementById('passwordError').style.display = 'none';
+        document.getElementById('username').classList.remove('input-error');
+        document.getElementById('password').classList.remove('input-error');
+
+        // گرفتن مقادیر ورودی
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        let valid = true;
+
+        // اعتبارسنجی نام کاربری
+        if (username === '') {
+            document.getElementById('usernameError').style.display = 'block';
+            document.getElementById('username').classList.add('input-error'); // اضافه کردن کلاس خطا
+            valid = false;
+        }
+
+        // اعتبارسنجی رمز عبور
+        if (password === '') {
+            document.getElementById('passwordError').style.display = 'block';
+            document.getElementById('password').classList.add('input-error'); // اضافه کردن کلاس خطا
+            valid = false;
+        }
+
+        // اگر تمام ورودی‌ها معتبر بودند، می‌توان فرم را ارسال کرد
+        if (valid) {
+            alert('ورود موفقیت‌آمیز!'); // اینجا می‌توانید کد ارسال فرم را قرار دهید
+            // در اینجا می‌توانید کد ارسال اطلاعات به سرور را اضافه کنید
+        }
+    });
+</script>
+
+</body>
+</html>

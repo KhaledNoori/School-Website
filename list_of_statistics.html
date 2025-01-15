@@ -24,19 +24,116 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
-  }
-  .camera-icon {
+    }
+
+    .camera-icon {
       position: absolute;
       top: 70%;
       left: 60%;
       transform: translate(-50%, -50%);
       cursor: pointer;
+    }
+
+    .table-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .operations {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      /* فاصله بین آیکون‌ها */
+    }
+
+    .edit-icon,
+    .delete-icon {
+      cursor: pointer;
+      font-size: 18px;
+      /* اندازه آیکون‌ها */
+    }
+
+    .edit-icon:hover {
+      color: #007bff;
+      /* رنگ آیکون ویرایش هنگام هاور */
+    }
+
+    .delete-icon:hover {
+      color: #dc3545;
+      /* رنگ آیکون حذف هنگام هاور */
+    }
+
+    .table-container a {
+      text-decoration: none;
+    }
+
+    /* style for modal*/
+  
+
+  .modal-title {
+      text-align: center;
+      width: 100%;
+  }
+
+  .form-container {
+      padding: 20px;
+  }
+
+  label {
+      margin-bottom: 5px;
+      display: block;
+  }
+
+  input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  button {
+      width: 100%;
+      padding: 10px;
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #4cae4c;
   }
   </style>
 </head>
 
 <body>
   <section x-data="toggleSidebar">
+    <!-- section for sidebar -->
     <section x-cloak class="sidebar" :class="open || 'inactive' ">
       <div class="d-flex align-items-center justify-content-between justify-content-lg-center">
         <img src="../assets/images/Navbar/photo_2024-09-11_09-11-16.png" alt="" srcset="" height="70px" width="70px" />
@@ -52,7 +149,7 @@
             </a>
           </li>
 
-         
+
 
           <li x-data="dropdown" class="sidebar-item">
             <div @click="toggle" class="sidebar-link">
@@ -61,8 +158,8 @@
               <i class="ms-auto bi bi-chevron-down"></i>
             </div>
             <ul x-show="open" x-transition class="submenu">
-              <li class="submenu-item"><a href="add_statisic.html">ایجاد کردن</a></li>
-              <li class="submenu-item"><a href="list_of_statistics.html">لیست </a></li>
+              <li class="submenu-item"><a href="add_statisic.html"> ثبت آمار</a></li>
+                <li class="submenu-item"><a href="list_of_statistics.html">لیست آمار</a></li>
             </ul>
           </li>
 
@@ -98,8 +195,8 @@
               <i class="ms-auto bi bi-chevron-down"></i>
             </div>
             <ul x-show="open" x-transition class="submenu">
-              <li class="submenu-item"><a href="add_advertise.html"> ثبت اطلاعیه جدید</a></li>
-              <li class="submenu-item"><a href="list_of_advertises.html">لیست اطلاعیه ها </a></li>
+              <li class="submenu-item"><a href="add_advertise.html">ثبت اطلاعیه جدید </a></li>
+              <li class="submenu-item"><a href="list_of_advertises">لیست اطلاعیه ها </a></li>
             </ul>
           </li>
         </ul>
@@ -107,6 +204,7 @@
     </section>
 
     <section class="main" :class="open || 'active'">
+      <!-- header of main section -->
       <header class="header d-flex justify-content-between p-3 align-items-center">
         <div>
           <a href="#">
@@ -159,7 +257,7 @@
               </div>
             </div>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-             
+
 
               <li>
                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal"> <i
@@ -186,39 +284,42 @@
             </ul>
           </div>
 
-        
+
 
           <!-- Modal -->
-<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header "> <!-- برای وسط‌چین کردن عنوان -->
-            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
-              <h5 class="modal-title" id="profileModalLabel ">ویرایش پروفایل</h5>
-              
+          <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header "> <!-- برای وسط‌چین کردن عنوان -->
+                  <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="profileModalLabel ">ویرایش پروفایل</h5>
+
+                </div>
+                <div class="modal-body text-center"> <!-- برای وسط‌چین کردن محتوا -->
+                  <div class="position-relative mb-3">
+                    <img id="profileImage" src="../assets/images/topstudent/c.jpg" alt=""
+                      class="profile-image img-fluid" />
+                    <input type="file" id="fileInput" style="display: none;" accept="image/*"
+                      onchange="previewImage(event)" />
+                    <i class="bi bi-camera camera-icon" onclick="document.getElementById('fileInput').click()"></i>
+                  </div>
+
+                  <div class="mb-3 text-start"> <!-- برای راست‌چین کردن متن label -->
+                    <label for="emailInput" class="form-label">ایمیل</label>
+                    <input type="email" class="form-control text-right" id="emailInput" required>
+                  </div>
+
+                  <div class="mb-3 text-start"> <!-- برای راست‌چین کردن متن label -->
+                    <label for="passwordInput" class="form-label">رمز عبور</label>
+                    <input type="password" class="form-control " id="passwordInput" required>
+                  </div>
+
+                  <button type="button" class="btn btn-primary">ذخیره تغییرات</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="modal-body text-center"> <!-- برای وسط‌چین کردن محتوا -->
-              <div class="position-relative mb-3">
-                  <img id="profileImage" src="../assets/images/topstudent/c.jpg" alt="" class="profile-image img-fluid" />
-                  <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="previewImage(event)" />
-                  <i class="bi bi-camera camera-icon" onclick="document.getElementById('fileInput').click()"></i>
-              </div>
-
-              <div class="mb-3 text-start"> <!-- برای راست‌چین کردن متن label -->
-                  <label for="emailInput" class="form-label">ایمیل</label>
-                  <input type="email" class="form-control text-right" id="emailInput" required >
-              </div>
-
-              <div class="mb-3 text-start"> <!-- برای راست‌چین کردن متن label -->
-                  <label for="passwordInput" class="form-label">رمز عبور</label>
-                  <input type="password" class="form-control " id="passwordInput" required>
-              </div>
-
-              <button type="button" class="btn btn-primary">ذخیره تغییرات</button>
-          </div>
-      </div>
-  </div>
-</div>
         </div>
       </header>
 
@@ -312,20 +413,44 @@
                     </div>
                   </div>
                 </div>
-                <!-- charts -->
-                <div class="row">
-                  <div class="coll-12">
-                    <div class="card">
-                      <div class="card-header Header">
-                        <h5 class="fw-bold mb-0">لورم ایپسوم</h5>
-                      </div>
-                      <div class="card-body">
+                <!-- add your form  -->
+
+                <div class="table-container">
+
+                  <table>
+
+                    <thead>
+
+                      <tr>
+
+                        <th>شماره</th>
+                        <th>دانش آموز</th>
+                        <th>آموزگار</th>
+                        <th>صنف آموزش</th>
+                        <th>نمایندگی</th>
+                        <th>عملیات</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>750</td>
+                        <td> 50</td>
+                        <td>50</td>
+                        <td>3</td>
+                        <td class="operations">
+
+                          <span
+                              class="edit-icon" type="button"  data-toggle="modal" data-target="#exampleModal">✏️</span>
+                          <span class="delete-icon">🗑️</span>
+                        </td>
+                      </tr>
+
+                    
 
 
-                        <canvas id="myChart" width="600" height="400"></canvas>
-                      </div>
-                    </div>
-                  </div>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -334,6 +459,47 @@
       </div>
     </section>
   </section>
+
+  <!-- modal -->
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-content">
+          <div class="modal-header "> <!-- برای وسط‌چین کردن عنوان -->
+            <button type="button" class="btn-close ms-0" data-dismiss="modal"  
+            aria-label="Close"></button>
+              <h5 class="modal-title" id="profileModalLabel ">ویرایش اطلاعات </h5>
+              
+          </div>
+          <div class="modal-body">
+              <div class="form-container">
+                  <form>
+                      <label for="student">دانش آموز:</label>
+                      <input type="number" id="student" name="student" required>
+
+                      <label for="teachers">آموزگار:</label>
+                      <input type="number" id="teachers" name="teachers" required>
+
+                      <label for="class">صنف آموزشی:</label>
+                      <input type="number" id="class" name="class" required>
+
+                      <label for="branch-type">نمایندگی:</label>
+                      <input type="number" id="branch-type" name="branch-type" required>
+
+                      <button type="submit">اپدیت</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
   <!-- prucounter -->
 
@@ -380,72 +546,7 @@
 
 
 
-  <script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['بخش ۱', 'بخش ۲', 'بخش ۳', 'بخش ۴', 'بخش ۵'],
-        datasets: [{
-          label: 'آمار',
-          data: [12, 19, 3, 5, 2],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)'
-          ],
-          borderWidth: 2,
-          hoverBackgroundColor: 'rgba(255, 159, 64, 0.6)', // رنگ پس‌زمینه در حالت hover
-          hoverBorderColor: 'rgba(255, 159, 64, 1)' // رنگ حاشیه در حالت hover
-        }]
-      },
-      options: {
-        responsive: true,
-        animation: {
-          duration: 1000,
-          easing: 'easeOutBounce' // نوع انیمیشن
-        },
-        plugins: {
-          legend: {
-            display: true,
-            position: 'top' // موقعیت نمایش legend
-          },
-          tooltip: {
-            enabled: true,
-            mode: 'index', // حالت نمایش tooltip
-            intersect: false // نمایش tooltip در صورت عدم تداخل
-          }
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'بخش‌ها' // عنوان محور X
-            }
-          },
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'مقدار' // عنوان محور Y
-            },
-            ticks: {
-              stepSize: 5 // فاصله بین تیک‌ها
-            }
-          }
-        }
-      }
-    });
-  </script>
+
   <script>
     document.addEventListener(
       // for sidebar

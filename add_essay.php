@@ -36,7 +36,7 @@ if (isset($_POST["save"])) {
   if ($insert_query) {
 
     echo " Data Saved Successfully ";
-    // header("location:index.php");
+    header("location:list_of_essay.php");
   }
 }
 ?>
@@ -503,7 +503,7 @@ if (isset($_POST["save"])) {
                     </div>
                     <div class="form-group">
                       <label for="">انتخاب فایل:</label>
-                      <input type="file" id="description" name="description" required>
+                      <input type="file" id="description" name="description" accept=".pdf" required>
                     </div>
                     <button type="submit" name="save"> ثبت </button>
                   </form>

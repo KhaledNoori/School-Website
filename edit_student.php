@@ -136,7 +136,7 @@ if($insert_query){
             </div>
             <div class="form-group">
                 <label for="branch-type"> توضیحات</label>
-                <input  type="file" id="decription" name="description"
+                <input  type="file" id="decription" accept=".pdf" name="description"
                 value="<?php echo $student['description'];?>" required>
             </div>
             <button type="submit" name="update_data">ثبت</button>

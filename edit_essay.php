@@ -125,7 +125,7 @@ if (isset($_POST["update_data"])) {
                 <input type="file" id="image" name="image" value="<?php echo $essay["image"]; ?>" accept="image/*">
             </div>
             <label for="">انتخاب فایل:</label>
-            <input type="file" id="description" name="description" value="<?php echo $essay["description"]; ?>">
+            <input type="file" id="description" accept=".pdf" name="description" value="<?php echo $essay["description"]; ?>">
     </div>
     <button type="submit" name="update_data"> ثبت تغییرات </button>
     </form>

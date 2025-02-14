@@ -110,11 +110,11 @@ if (!isset($_SESSION['login'])) {
 
                   <img id="profileImage" src="uploads/<?php echo   $row["image"] ?>" alt=""
                     class="profile-image 
-                            " height="50px" width="50px" />
+                            "  />
 
 
                   <div class="ms-3">
-                    <h6 class="fs-6 fw-bold text-gray-600 mb-0"><?php echo   $row["Name"] ?> </h6>
+                    <h6 class="fs-6 fw-bold text-gray-400 mb-0"><?php echo   $row["Name"] ?> </h6>
                     <h3 class=" text-gray-600 mb-0"> ادمین</h3>
                   </div>
 

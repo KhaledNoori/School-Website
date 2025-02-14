@@ -31,9 +31,9 @@
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="contactUS.php">ارتباط با ما</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link " aria-current="page" href="admin.php">  ادمین</a>
-          </li>
+          </li> -->
 
         </ul>
 

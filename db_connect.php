@@ -13,6 +13,6 @@ if(!$GLOBALS['DB']){
     echo " You cant not connect to the Database";
 }else{
 
-    echo " You Connebted";
+    echo " You Connected";
 }
 ?>

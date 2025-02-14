@@ -95,7 +95,7 @@
                                 <div>
 
                                     <span data-purecounter-start="0" data-purecounter-end="
-                            <?php echo  $row["student"] ?>"  class=" purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
+                            <?php echo  $row["teacher"] ?>"  class=" purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
 
                                     <p class="fw-bold">آموزگار</p>
                                 </div>
@@ -108,7 +108,7 @@
                                 <div>
 
                                     <span data-purecounter-start="0" data-purecounter-end="
-                            <?php echo  $row["classes"] ?>""  class=" purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
+                            <?php echo  $row["student"] ?>""  class=" purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
                                     <p class="fw-bold">دانش آموز</p>
                                 </div>
                             </div>
@@ -131,9 +131,9 @@
                                 <i class="bi bi-building blue"></i>
                                 <div>
 
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
+                            <span data-purecounter-start="0" data-purecounter-end="<?php echo  $row["branch"] ?>"
                                 class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
-                            <p class="fw-bold">صنف آموزشی</p>
+                            <p class="fw-bold">نماینده گی ها</p>
                         </div>
                     </div>
                 </div>

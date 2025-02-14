@@ -9,18 +9,19 @@ if (isset($_POST["login"])) {
     $user_name = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM `users` WHERE PASSWORD = '$password'And USERNAME = '$user_name'";
+    $sql = "SELECT * FROM `users` WHERE PASSWORD = '$password'AND USERNAME = '$user_name'";
     $select_query = mysqli_query($GLOBALS['DB'], $sql);
 
     $users = mysqli_fetch_assoc($select_query);
 
-    if ($users) {
+    if ($users ==true) {
 
         $_SESSION['login'] = $user_name;
 
         header("location:admin.php");
+        exit();
     } else {
-       echo "رمز و پسورد شما اشتباه است";
+        echo  "رمز و پسورد شما اشتباه است";
     }
 }
 
@@ -124,6 +125,7 @@ if (isset($_POST["login"])) {
 
     <div class="login-container">
         <h2>ورود به حساب کاربری</h2>
+        
         <form id="loginForm" action="#" method="post">
             <div class="input-group">
                 <label for="username">نام کاربری</label>
@@ -137,12 +139,11 @@ if (isset($_POST["login"])) {
             </div>
             <button type="submit" class="btn" name="login">ورود</button>
         </form>
-        <?php if (isset($_GET['red_un_se_id'])) {
-            echo "<h3 style='color:red;'>لطفا نام کاربری و رمز خود را دوباره وارد کنید </h3>";
-        } ?>
+        <?php if (!empty($error_message)): ?>
+        <div class="error-message"><?php echo $error_message; ?></div> <!-- نمایش پیام خطا -->
+    <?php endif; ?>
 
-        <p>اگر حساب کاربری ندارید، لطفاً به <a href="">صفحه ثبت‌ نام</a> بروید.</p> <!-- لینک به صفحه ثبت‌ نام -->
-
+        
     </div>
 
    

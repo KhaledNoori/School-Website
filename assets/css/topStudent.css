@@ -23,7 +23,6 @@
   --secondary-color: #f99a00;
   --dark-color: #585858;
 }
-
 body {
   font-family: "Vazir" !important;
   display: flex;
@@ -60,6 +59,7 @@ body {
   margin-top: 50px;
   padding: 50px;
 }
+
 .swiper-wraper {
   width: 100%;
   height: 35em;
@@ -72,7 +72,8 @@ body {
 
 .card {
   width: 25%;
-  height: auto; /* تنظیم ارتفاع به صورت خودکار */
+  height: auto;
+  /* تنظیم ارتفاع به صورت خودکار */
   border-radius: 2em;
   box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
   padding: 1em .5em;
@@ -80,13 +81,17 @@ body {
   align-items: center;
   flex-direction: column;
   margin: 0 1.5em;
-} 
+}
 
 .card_image {
-  width: 10vw; /* استفاده از واحد vw برای اندازه نسبی */
-  height: 10vw; /* استفاده از واحد vw برای اندازه نسبی */
-  max-width: 150px; /* حداکثر عرض */
-  max-height: 150px; /* حداکثر ارتفاع */
+  width: 10vw;
+  /* استفاده از واحد vw برای اندازه نسبی */
+  height: 10vw;
+  /* استفاده از واحد vw برای اندازه نسبی */
+  max-width: 150px;
+  /* حداکثر عرض */
+  max-height: 150px;
+  /* حداکثر ارتفاع */
   border-radius: 50%;
   border: 5px solid #f99a00;
   padding: 3px;
@@ -94,8 +99,10 @@ body {
 }
 
 .card_image img {
-  width: 100%; /* تنظیم تصویر به صورت خودکار */
-  height: auto; /* حفظ نسبت ابعاد */
+  width: 100%;
+  /* تنظیم تصویر به صورت خودکار */
+  height: auto;
+  /* حفظ نسبت ابعاد */
   border-radius: 50%;
   border: 3px solid #fff;
 }
@@ -136,21 +143,38 @@ body {
   margin-top: 0.5em;
   cursor: pointer;
 }
-.user-text{
+
+.user-text {
   color: #585858;
 }
 
-.title{
+.title {
   color: #4e9dc5;
 }
 
-.link1{
+.link1 {
   color: #4e9dc5;
 }
 
 /* style for link of footer */
 
-.link1{
+.link1 {
   text-decoration: none;
+
+
+}
+
+.card-btn11 {
+  background-color: #f99a00;
+  /* رنگ دکمه */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.card-btn11:hover {
+  color: black;
+  /* رنگ دکمه */
 
 }

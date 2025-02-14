@@ -11,7 +11,7 @@
         integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous" />
     <!-- css file -->
     <link rel="stylesheet" href="./assets/css/About.css" />
-    
+
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- pruecounter library for counting the number -->
@@ -35,65 +35,10 @@
 <body>
 
     <!-- this is Navbar -->
-    <header x-data="{ navShow: false }" @scroll.window="navShow = window.scrollY > 70">
-        <nav class=" header navbar navbar-expand-lg navbar-light fixed-top" :class="{'header-scrolled': navShow}">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img height="50px" src="../assets/images/Navbar/photo_2024-09-11_09-11-16.png"
-                        alt="png"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="index.html">صفحه اصلی</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="About.html">در باره ما</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="Essay.html">مقالات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="topStudent.html">شاگردان برتر</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="news.html">اعلانات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="contactUS.html"
-                              >ارتباط با ما</a
-                            >
-                          </li>
-                    </ul>
 
-                    <!-- active the light and dark Mode -->
-
-                    <div class="mx-2 ">
-                        <i class="bi bi-brightness-high-fill fs-3" id="toggleDark"></i>
-                    </div>
-
-                    <!-- Google Translate api -->
-                    <div>
-                        <div id="google_element"></div>
-                        <script async
-                            src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-                        <script>
-                            function loadGoogleTranslate() {
-                                new google.translate.TranslateElement({
-                                    pageLanguage: 'en',
-                                    includedLanguages: 'en,fa,ar,fr,tr,ph',
-                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                                }, 'google_element');
-                            }
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php
+    require "navbar.php"
+    ?>
 
 
     <!-- About us  -->
@@ -118,7 +63,7 @@
 
             <div class="col-lg-6">
                 <div class="div-img text-center">
-                    <img src="../assets/images/Navbar/photo_2024-09-11_09-11-16.png" alt="ewew" class="img-fluid shadow" />
+                    <img src="<?php echo "assets/images/Navbar/logo.png"; ?>" alt="ewew" class="img-fluid shadow" />
                 </div>
             </div>
         </div>
@@ -128,57 +73,81 @@
 
         <div class="container counts my-5">
 
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-person-standing blue"></i>
-                        <div>
 
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter   m-2 fw-bold" style="color: #f76c2f">0</span>
-                            <p class="fw-bold">آموزگار</p>
+
+            <?php
+            require "database_connect.php";
+            $query = "SELECT * FROM statistics";
+            $query_run = mysqli_query($GLOBALS['DB'], $query);
+
+            $check_essay = mysqli_num_rows($query_run) > 0;
+
+            if ($check_essay) {
+                while ($row = mysqli_fetch_assoc($query_run)) {
+
+            ?>
+
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="d-flex align-items-center justify-content-center shadow p-3">
+                                <i class="bi bi-person-standing blue"></i>
+                                <div>
+
+                                    <span data-purecounter-start="0" data-purecounter-end="
+                            <?php echo  $row["student"] ?>"  class=" purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
+
+                                    <p class="fw-bold">آموزگار</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-people-fill blue"></i>
-                        <div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="d-flex align-items-center justify-content-center shadow p-3">
+                                <i class="bi bi-people-fill blue"></i>
+                                <div>
 
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
-                            <p class="fw-bold">دانش آموز</p>
+                                    <span data-purecounter-start="0" data-purecounter-end="
+                            <?php echo  $row["classes"] ?>""  class=" purecounter purecolor m-2 fw-bold" style="color: #f76c2f">0</span>
+                                    <p class="fw-bold">دانش آموز</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-building blue"></i>
-                        <div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="d-flex align-items-center justify-content-center shadow p-3">
+                                <i class="bi bi-building blue"></i>
+                                <div>
 
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
-                            <p class="fw-bold">صنف آموزشی</p>
+                                    <span data-purecounter-start="0" data-purecounter-end="<?php echo  $row["classes"] ?>"
+                                        class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
+                                    <p class="fw-bold">صنف آموزشی</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <div class="d-flex align-items-center justify-content-center shadow p-3">
-                        <i class="bi bi-building blue"></i>
-                        <div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="d-flex align-items-center justify-content-center shadow p-3">
+                                <i class="bi bi-building blue"></i>
+                                <div>
 
-                            <span data-purecounter-start="0" data-purecounter-end="9001"
-                                class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
-                            <p class="fw-bold">صنف آموزشی</p>
+                                    <span data-purecounter-start="0" data-purecounter-end="<?php echo   $row["branch"] ?>"
+                                        class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
+                                    <p class="fw-bold">نمایندگی ها </p>
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
-                </div>
+            <?php
+                }
+            } else {
+                echo " no faculty found";
+            }
 
 
-            </div>
+            ?>
         </div>
         <!-- Vision and mission -->
         <div class="container section border-top my-5">
@@ -226,27 +195,27 @@
                     <h6 class="purecolor">لینک صفحات</h6>
                     <hr />
                     <div class="di ">
-                        <a class="link1 text-center" href="#">
-                            خانه
+                        <a class="link1 text-center" href="index.php">
+                            صفحه اصلی
                         </a>
                     </div>
                     <div class="di">
-                        <a class="link1" href="#">
+                        <a class="link1" href="About.php">
                             در باره ما
                         </a>
                     </div>
                     <div class="di">
-                        <a class="link1" href="#">
+                        <a class="link1" href="Essay.php">
                             مقالات
                         </a>
                     </div>
                     <div class="di">
-                        <a class="link1" href="#">
+                        <a class="link1" href="topStudent.php">
                             شاگردان برتر
                         </a>
                     </div>
                     <div class="di">
-                        <a class="link1" href="#">
+                        <a class="link1" href="contactUs.php">
                             ارتباط با ما
                         </a>
                     </div>
@@ -274,18 +243,73 @@
         </div>
     </section>
 
+
+    <script>
+        // /* about dark and light mode */
+        const toggle = document.getElementById("toggleDark");
+        const body = document.querySelector("body");
+
+        toggle.addEventListener("click", () => {
+            toggle.classList.toggle("bi-moon");
+            if (toggle.classList.toggle("bi-brightness-high-fill")) {
+                body.style.background = "white";
+                body.style.color = "black";
+                body.style.transition = "2s";
+                body.style.textEmphasisColor = "white";
+            } else {
+                body.style.background = "black";
+                body.style.color = "white";
+                body.style.transition = "2s";
+            }
+        });
+
+        // email js and sweetalert2@11 for sending email and showing better message
+
+        // جایگزین کردن با User ID خود
+        (function() {
+            emailjs.init("CvmB0NV53HwoAYBdk");
+        })();
+
+        document
+            .getElementById("contact-form")
+            .addEventListener("submit", function(event) {
+                event.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
+
+                emailjs.sendForm("service_jtz4spm", "template_ja14zpg", this).then(
+                    function() {
+                        // نمایش پیام موفقیت با SweetAlert
+                        Swal.fire({
+                            title: "پیام با موفقیت ارسال شد!",
+                            text: "ایمیل شما با موفقیت ارسال گردید.",
+                            icon: "success",
+                            confirmButtonText: "باشه",
+                        });
+                    },
+                    function(error) {
+                        // نمایش پیام خطا با SweetAlert
+                        Swal.fire({
+                            title: "خطا در ارسال ایمیل",
+                            text: "متاسفانه ایمیل شما ارسال نشد: " + JSON.stringify(error),
+                            icon: "error",
+                            confirmButtonText: "باشه",
+                        });
+                    }
+                );
+            });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
     <script>
         new PureCounter();
     </script>
 
-    <!-- <!-- Option 1: Bootstrap Bundle with Popper  bootstarp 5.1.3  js link -->
+    <!-- Option 1: Bootstrap Bundle with Popper  bootstarp 5.1.3  js link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-        <!-- js file -->
-    <script src="../assets/js/javaScript.js" defer></script>
+    <!-- js file -->
+    <script src="<?php echo "assets/js/javsScript.js"; ?>" defer></script>
 
 </body>
 

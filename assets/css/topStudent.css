@@ -161,20 +161,31 @@ body {
 .link1 {
   text-decoration: none;
 
+<<<<<<< HEAD
 
 }
 
 .card-btn11 {
   background-color: #f99a00;
   /* رنگ دکمه */
+=======
+}
+
+
+.card-btn11 {
+  background-color: #f99a00; /* رنگ دکمه */
+>>>>>>> 7331c1a59faf712d20383e706f2c77000f251e02
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
+<<<<<<< HEAD
 }
 
 .card-btn11:hover {
   color: black;
   /* رنگ دکمه */
 
+=======
+>>>>>>> 7331c1a59faf712d20383e706f2c77000f251e02
 }

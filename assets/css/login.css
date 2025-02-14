@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 body{
     font-family: "Vazir" !important;
     background-color: #b0a7a7;
+=======
+body {
+    font-family: "Vazir" !important;
+    background-color: #f7f7f7;
+>>>>>>> 7331c1a59faf712d20383e706f2c77000f251e02
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +23,11 @@ body{
 h2 {
     text-align: center;
     margin-bottom: 1.5rem;
+<<<<<<< HEAD
     color: #d31f1f;
+=======
+    color: #333333;
+>>>>>>> 7331c1a59faf712d20383e706f2c77000f251e02
 }
 .input-group {
     margin-bottom: 1rem;

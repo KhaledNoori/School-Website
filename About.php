@@ -131,12 +131,12 @@
                                 <i class="bi bi-building blue"></i>
                                 <div>
 
-                                    <span data-purecounter-start="0" data-purecounter-end="<?php echo   $row["branch"] ?>"
-                                        class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
-                                    <p class="fw-bold">نمایندگی ها </p>
-                                </div>
-                            </div>
+                            <span data-purecounter-start="0" data-purecounter-end="9001"
+                                class="purecounter m-2 purecolor fw-bold" style="color: #f76c2f">0</span>
+                            <p class="fw-bold">صنف آموزشی</p>
                         </div>
+                    </div>
+                </div>
 
 
                     </div>
